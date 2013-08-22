@@ -1,3 +1,3 @@
 App = require 'app'
 
-App.Store = DS.Store.extend()
+module.exports = App.Store = DS.Store.extend()
