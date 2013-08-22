@@ -12,7 +12,7 @@ require 'routes/IndexRoute'
 
 
 # ===== Store =====
-
+require 'store'
 
 # ===== Models =====
 

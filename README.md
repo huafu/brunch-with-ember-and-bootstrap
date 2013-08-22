@@ -1,8 +1,12 @@
-# brunch-with-ember-reloaded
+# brunch-with-ember-and-bootstrap
 A new and up-to-date [Brunch](http://brunch.io) skeleton for developing [Ember](http://emberjs.com) applications based on the official Ember [Starter Kit](https://github.com/emberjs/starter-kit/archive/master.zip).
 
+It's based the skeletong on Giovanni Collazo [brunch-with-ember-reloaded](https://github.com/gcollazo/brunch-with-ember-reloaded)'s one.
+
 ## Demo
-I built a demo app using this skeleton, based on the [Building an App with Ember.js](http://www.youtube.com/watch?v=Ga99hMi7wfY) video by [Tom Dale](http://twitter.com/tomdale).
+Giovanni Collazo built a demo app using his skeleton (on which I've based mine), based on the
+[Building an App with Ember.js](http://www.youtube.com/watch?v=Ga99hMi7wfY) video by
+[Tom Dale](http://twitter.com/tomdale).
 
 **Demo**: [ember-bloggr](http://dev.gcollazo.com/ember-bloggr)
 **Source**: [https://github.com/gcollazo/ember-bloggr](https://github.com/gcollazo/ember-bloggr)
@@ -12,6 +16,7 @@ I built a demo app using this skeleton, based on the [Building an App with Ember
 - [Handlebars 1.0.0](http://handlebarsjs.com)
 - [jQuery v1.9.1](http://jquery.com)
 - [HTML5 Boilerplate v4.2.0](http://html5boilerplate.com)
+- [Twitter Bootstrap v2.3.2](https://github.com/twitter/bootstrap)
 
 ## Features
 - **CoffeeScript** - a little language that compiles into JavaScript.
@@ -22,7 +27,7 @@ I built a demo app using this skeleton, based on the [Building an App with Ember
 ## Getting started
 
 ```
-brunch new gh:gcollazo/brunch-with-ember-reloaded <appname>
+brunch new gh:huafu/brunch-with-ember-and-bootstrap <appname>
 cd <appname>
 brunch watch -s
 ```
@@ -60,7 +65,7 @@ cake test
 ## License
 All of brunch-with-ember-reloaded is licensed under the MIT license.
 
-Copyright (c) 2013 Giovanni Collazo
+Copyright (c) 2013 Huafu Gandon
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

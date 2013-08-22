@@ -1,3 +1,4 @@
 # Application bootstrapper
 
-module.exports = Ember.Application.create({})
+module.exports = Ember.Application.create
+  name: 'brunch-with-ember-and-bootstrap'

@@ -15,6 +15,8 @@ exports.config =
           'vendor/scripts/jquery-1.9.1.js'
           'vendor/scripts/handlebars-1.0.0.js'
           'vendor/scripts/ember-1.0.0-rc.7.js'
+          'vendor/scripts/ember-data-latest.js'
+          'vendor/scripts/bootstrap/bootstrap-tooltip.js'
           ]
 
     stylesheets:
