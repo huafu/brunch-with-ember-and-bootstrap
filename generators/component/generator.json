@@ -1,0 +1,13 @@
+{
+  "files": [
+    {
+      "from": "component.coffee.hbs",
+      "to": "app/views/components/{{#camelize}}{{name}}{{/camelize}}.coffee"
+    },
+    {
+      "from": "component.hbs.hbs",
+      "to": "app/templates/components/{name}}.hbs"
+    }
+  ],
+  "dependencies": []
+}

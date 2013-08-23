@@ -46,12 +46,28 @@ This skeleton makes use of [scaffolt](https://github.com/paulmillr/scaffolt#read
 
 ```
 scaffolt model <name>              → app/models/Name.coffee
-scaffolt view <name>               → app/views/NameView.coffee
-scaffolt controller <name>         → app/controllers/NameController.coffee (Em.Controller)
-scaffolt objectcontroller <name>   → app/controllers/NameController.coffee (Em.ObjectController)
-scaffolt arraycontroller <name>    → app/controllers/NamesController.coffee (Em.ArrayController)
-scaffolt route <name>              → app/routes/NameRoute.coffee
+    => App.Name = DS.Model.extend
+
+scaffolt view <name>               → app/views/Name.coffee
+    => App.NameView = Ember.View.extend
+
+scaffolt controller <name>         → app/controllers/Name.coffee
+    => App.NameController = Ember.Controller.extend
+
+scaffolt objectcontroller <name>   → app/controllers/Name.coffee
+    => App.NameController = Ember.ObjectController.extend
+
+scaffolt arraycontroller <name>    → app/controllers/Names.coffee
+    => App.NamesController = Ember.ArrayController.extend
+
+scaffolt route <name>              → app/routes/Name.coffee
+    => App.NameRoute = Ember.Route.extend
+
 scaffolt template <name>           → app/templates/name.hbs
+
+scaffolt component <comp-name>     → app/templates/components/comp-name.hbs
+                                   → app/views/components/CompName.coffee
+    => App.CompNameComponent = Ember.Component.extend
 ```
 There's a few more commands you can use with scaffolt and also instruction on how to create your own generators, so make sure you check out the [docs](https://github.com/paulmillr/scaffolt#readme).
 
