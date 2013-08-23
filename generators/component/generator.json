@@ -6,7 +6,7 @@
     },
     {
       "from": "component.hbs.hbs",
-      "to": "app/templates/components/{name}}.hbs"
+      "to": "app/templates/components/{{name}}.hbs"
     }
   ],
   "dependencies": []
