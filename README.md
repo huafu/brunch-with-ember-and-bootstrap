@@ -1,7 +1,7 @@
 # brunch-with-ember-and-bootstrap
 A new and up-to-date [Brunch](http://brunch.io) skeleton for developing [Ember](http://emberjs.com) applications based on the official Ember [Starter Kit](https://github.com/emberjs/starter-kit/archive/master.zip).
 
-It's based the skeletong on Giovanni Collazo [brunch-with-ember-reloaded](https://github.com/gcollazo/brunch-with-ember-reloaded)'s one.
+It's based the skeleton fron Giovanni Collazo [brunch-with-ember-reloaded](https://github.com/gcollazo/brunch-with-ember-reloaded).
 
 ## Demo
 Giovanni Collazo built a demo app using his skeleton (on which I've based mine), based on the
@@ -10,6 +10,8 @@ Giovanni Collazo built a demo app using his skeleton (on which I've based mine),
 
 **Demo**: [ember-bloggr](http://dev.gcollazo.com/ember-bloggr)
 **Source**: [https://github.com/gcollazo/ember-bloggr](https://github.com/gcollazo/ember-bloggr)
+
+I'll soon publish a little demo tool using my (this) skeleton.
 
 ## Versions
 - [Ember v1.0.0-rc.7](http://emberjs.com)
@@ -35,6 +37,8 @@ Open [http://localhost:3333](http://localhost:3333) on your browser.
 
 ### Ember Data
 The Ember Data is already included in the project from [builds.emberjs.com](http://builds.emberjs.com).
+
+You can easily disable it by prepending `vendor/scripts/ember-data-latest.js` with a `_`, removing it from the `config.coffee` file and commenting out `require 'store'` from `app/initialize.coffee`.
 
 ### Generators
 This skeleton makes use of [scaffolt](https://github.com/paulmillr/scaffolt#readme) generators to help you create common files quicker. To use first install scaffolt globally with `npm install -g scaffolt`. Then you can use the following command to generate files.
