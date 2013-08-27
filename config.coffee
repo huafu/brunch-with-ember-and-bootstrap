@@ -14,7 +14,7 @@ exports.config =
           'vendor/scripts/console-polyfill.js'
           'vendor/scripts/jquery-1.9.1.js'
           'vendor/scripts/handlebars-1.0.0.js'
-          'vendor/scripts/ember-1.0.0-rc.7.js'
+          'vendor/scripts/ember-latest.js'
           'vendor/scripts/ember-data-latest.js'
           'vendor/scripts/bootstrap/bootstrap-tooltip.js'
           ]
@@ -26,12 +26,16 @@ exports.config =
         before: ['vendor/styles/normalize.css']
 
     templates:
+      # for smaller builds, disable the pre-compilation of tempaltes
       precompile: true
       root: 'templates'
       joinTo: 'javascripts/app.js' : /^app/
 
       modules:
         addSourceURLs: true
+
+  # CoffeeScript easy-debugging | don't forget to remove for production release
+  sourceMaps: true
 
   # allow _ prefixed templates so partials work
   conventions:

@@ -1,12 +1,12 @@
 {
   "author": "Huafu Gandon",
   "name": "brunch-with-ember-and-bootstrap",
-  "description": "A new and up-to-date Brunch skeleton for developing Ember applications",
-  "version": "0.0.1",
-  "homepage": "",
+  "description": "A new and up-to-date Brunch skeleton for developing Ember applications with CoffeeScript, Stylus and Twitter Bootstrap",
+  "version": "0.0.2",
+  "homepage": "https://github.com/huafu/brunch-with-ember-and-bootstrap",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/huafu/brunch-with-ember-and-bootstrap"
   },
   "engines": {
     "node": "~0.6.10 || 0.8 || 0.9 || 0.10"

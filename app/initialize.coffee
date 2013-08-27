@@ -4,7 +4,7 @@ App = require 'app'
 
 # ===== Router =====
 App.Router.map ->
-    # put your routes here
+  # put your routes here
 
 
 # ===== Routes =====
