@@ -34,12 +34,7 @@ brunch watch -s
 Open [http://localhost:3333](http://localhost:3333) on your browser.
 
 ### Ember Data
-There's a little cake task to download the Ember Data from [builds.emberjs.com](http://builds.emberjs.com) and copy it to your `vendor/scripts` directory.
-
-```
-cake getemberdata
-```
-When the script finishes just add `'vendor/scripts/ember-data-latest.js'` to your `config.coffee` file just under `'vendor/scripts/ember-*.js'`.
+The Ember Data is already included in the project from [builds.emberjs.com](http://builds.emberjs.com).
 
 ### Generators
 This skeleton makes use of [scaffolt](https://github.com/paulmillr/scaffolt#readme) generators to help you create common files quicker. To use first install scaffolt globally with `npm install -g scaffolt`. Then you can use the following command to generate files.
