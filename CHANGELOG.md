@@ -1,1 +1,2 @@
-* 0.2.0 - First version released
+* __0.2.1__ - Fixing the package.json for npm registrery publication
+* __0.2.0__ - First version released
