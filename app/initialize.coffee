@@ -3,27 +3,31 @@ App = require 'app'
 
 
 # ===== Router =====
-App.Router.map ->
-  # put your routes here
+require 'router'
 
 
 # ===== Routes =====
-require 'routes/IndexRoute'
+require 'routes/Index'
 
 
 # ===== Store =====
 require 'store'
 
+
 # ===== Models =====
+
 
 
 # ===== Views =====
 
 
+
 # ===== Controllers =====
 
 
+
 # ===== Template Helpers =====
+
 
 
 # ===== Templates =====
