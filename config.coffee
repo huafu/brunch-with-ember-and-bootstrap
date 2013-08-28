@@ -29,6 +29,9 @@ exports.config =
           'vendor/scripts/ember-data-latest.js'
           'vendor/scripts/bootstrap/bootstrap-tooltip.js'
           ]
+        after: [
+          'vendor/scripts/ember-bootstrap-latest.js'
+        ]
 
     stylesheets:
       joinTo:
