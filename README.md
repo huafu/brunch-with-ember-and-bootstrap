@@ -3,6 +3,7 @@ A new and up-to-date [Brunch](http://brunch.io) skeleton for developing [Ember](
 
 It's based the skeleton fron Giovanni Collazo [brunch-with-ember-reloaded](https://github.com/gcollazo/brunch-with-ember-reloaded).
 
+
 ## Demo
 Giovanni Collazo built a demo app using his skeleton (on which I've based mine), based on the
 [Building an App with Ember.js](http://www.youtube.com/watch?v=Ga99hMi7wfY) video by
@@ -12,6 +13,7 @@ Giovanni Collazo built a demo app using his skeleton (on which I've based mine),
 **Source**: [https://github.com/gcollazo/ember-bloggr](https://github.com/gcollazo/ember-bloggr)
 
 I'll soon publish a little demo tool using my (this) skeleton.
+
 
 ## Versions
 - [Ember v1.0.0-rc.7](http://emberjs.com)
@@ -26,8 +28,9 @@ I'll soon publish a little demo tool using my (this) skeleton.
 - **auto-reload-brunch** - Adds automatic browser reloading support to brunch.
 - **uglify-js-brunch** - Adds UglifyJS support to brunch.
 
-## Getting started
 
+## Getting started
+Create a new project using this skeleton:
 ```
 brunch new gh:huafu/brunch-with-ember-and-bootstrap <appname>
 cd <appname>
@@ -35,10 +38,16 @@ brunch watch -s
 ```
 Open [http://localhost:3333](http://localhost:3333) on your browser.
 
+
 ### Ember Data
 The Ember Data is already included in the project from [builds.emberjs.com](http://builds.emberjs.com).
 
 You can easily disable it by prepending `vendor/scripts/ember-data-latest.js` with a `_`, removing it from the `config.coffee` file and commenting out `require 'store'` from `app/initialize.coffee`.
+
+
+### Ember Bootstrap
+[Ember Bootstrap](https://github.com/emberjs-addons/ember-bootstrap) is some helpers to use Twitter Bootstrap elements easy with Ember. It comes with Views accessible as Handlebars template helpers too.
+
 
 ### Generators
 This skeleton makes use of [scaffolt](https://github.com/paulmillr/scaffolt#readme) generators to help you create common files quicker. To use first install scaffolt globally with `npm install -g scaffolt`. Then you can use the following command to generate files.
@@ -70,6 +79,7 @@ scaffolt component <comp-name>     → app/templates/components/comp-name.hbs
 ```
 There's a few more commands you can use with scaffolt and also instruction on how to create your own generators, so make sure you check out the [docs](https://github.com/paulmillr/scaffolt#readme).
 
+
 ### Testing
 You can write your tests in the `test` folder, just make sure they are named `*_test.coffee`. You can customize the test to user PhantomJS, Chrome, Firefox, Safari or Opera on the `test/karma.conf.js` file. There's a lot of other settings there as well. Run tests with:
 
@@ -77,6 +87,17 @@ You can write your tests in the `test` folder, just make sure they are named `*_
 cake test
 ```
 
+
+## Updating
+You have some `cake` tasks to help you update *ember*, *ember-data* and *ember-bootstrap*. More to come in the future.
+```bash
+# update Ember:
+cake update-ember
+# update Ember Data:
+cake update-ember-data
+# update Ember Bootstrap:
+cake update-ember-bootstrap
+```
 
 ## License
 All of brunch-with-ember-reloaded is licensed under the MIT license.

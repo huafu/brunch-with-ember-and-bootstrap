@@ -1,4 +1,15 @@
 sysPath = require 'path'
+fs      = require 'fs'
+
+#TODO: find a method to do this in a cleaner way
+gitHead = -> fs.readFileSync(sysPath.join('.git', 'HEAD')).toString().replace(/^\s*ref\:\s*/g, '').replace(/\s*$/g, '')
+gitBranch = ->
+  head = gitHead().split /\//g
+  branch = head.slice()
+  branch.shift()
+  branch.shift()
+  branch.join '/'
+gitCommitHash = -> fs.readFileSync(sysPath.join('.git', gitHead().split(/\//g).join(sysPath.sep))).toString().replace(/^\s*/g, '').replace(/\s*$/g, '')
 
 exports.config =
   # See http://brunch.io/#documentation for documentation.
@@ -18,6 +29,9 @@ exports.config =
           'vendor/scripts/ember-data-latest.js'
           'vendor/scripts/bootstrap/bootstrap-tooltip.js'
           ]
+        after: [
+          'vendor/scripts/ember-bootstrap-latest.js'
+        ]
 
     stylesheets:
       joinTo:
@@ -36,6 +50,13 @@ exports.config =
 
   # CoffeeScript easy-debugging | don't forget to remove for production release
   sourceMaps: true
+
+  # keyword-brunch plugin
+  keyword:
+    map:
+      git_commit_hash: gitCommitHash
+      git_short_commit_hash: -> gitCommitHash().substr 0, 7
+      git_branch: gitBranch
 
   # allow _ prefixed templates so partials work
   conventions:

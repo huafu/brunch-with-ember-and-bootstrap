@@ -1,6 +1,9 @@
 # ===== Namespace =====
 App = require 'app'
 
+# ===== Config =====
+require 'config'
+
 
 # ===== Router =====
 require 'router'
