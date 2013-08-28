@@ -1,3 +1,5 @@
 App = require 'app'
 
-module.exports = App.IndexRoute = Ember.Route.extend()
+module.exports = App.IndexRoute = Ember.Route.extend
+  model: (params) ->
+    App.CONFIG
