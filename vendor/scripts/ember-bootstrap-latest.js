@@ -1,6 +1,6 @@
 // Version: 01c440e23a4772f5caabe9d8e27e0b6ac9b35c6c-16-g4297f63
 // Last commit: 4297f63 (2013-08-19 08:30:46 -0700)
-
+var Bootstrap = Ember.Namespace.create();
 
 (function() {
 var define, requireModule;
@@ -42,7 +42,7 @@ var define, requireModule;
   };
 })();
 (function() {
-window.Bootstrap = Ember.Namespace.create();
+window.Bootstrap = Bootstrap;
 
 })();
 
