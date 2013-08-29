@@ -1,5 +1,5 @@
 # brunch-with-ember-and-bootstrap
-A new and up-to-date [Brunch](http://brunch.io) skeleton for developing [Ember](http://emberjs.com) applications based on the official Ember [Starter Kit](https://github.com/emberjs/starter-kit/archive/master.zip).
+An up-to-date [Brunch](http://brunch.io) skeleton for developing [Ember](http://emberjs.com) applications based on the official Ember [Starter Kit](https://github.com/emberjs/starter-kit/archive/master.zip).
 
 It's based the skeleton fron Giovanni Collazo [brunch-with-ember-reloaded](https://github.com/gcollazo/brunch-with-ember-reloaded).
 
@@ -21,6 +21,7 @@ I'll soon publish a little demo tool using my (this) skeleton.
 - [jQuery v1.9.1](http://jquery.com)
 - [HTML5 Boilerplate v4.2.0](http://html5boilerplate.com)
 - [Twitter Bootstrap v2.3.2](https://github.com/twitter/bootstrap)
+
 
 ## Features
 - **CoffeeScript** - a little language that compiles into JavaScript.
