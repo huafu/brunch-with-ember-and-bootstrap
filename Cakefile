@@ -39,6 +39,7 @@ task 'update-ember', 'download the latest Ember', (options) ->
 
 # Get the latest Ember Bootstrap
 task 'update-ember-bootstrap', 'download and build the latest Ember Bootstrap', (options) ->
+  console.log "Downloading and building latest sources for Ember Bootstrap..."
   fs.mkdir 'tmp', (err) ->
     throw err if err
     cmd = '''
@@ -46,7 +47,26 @@ task 'update-ember-bootstrap', 'download and build the latest Ember Bootstrap', 
       cd ember-bootstrap &&
       bundle install &&
       rake &&
-      cp dist/ember-bootstrap.js ../../vendor/scripts/ember-bootstrap-latest.js
+      cp dist/ember-bootstrap.js ../../vendor/scripts/ember-bootstrap.js
+      '''
+    child_process.exec cmd, cwd: fs.realpathSync('tmp'), (err, stdout, stderr) ->
+      throw err if err
+      child_process.exec 'rm -rf tmp'
+
+
+# Get the latest Bootstrap (stylus version)
+task 'update-bootstrap', 'download the latest Twitter Bootstrap javascript and stylus files', (options) ->
+  console.log "Downloading the latest sources for Twitter Bootstrap..."
+  fs.mkdir 'tmp', (err) ->
+    throw err if err
+    cmd = '''
+      git clone https://github.com/Acquisio/bootstrap-stylus.git &&
+      cd bootstrap-stylus &&
+      rm ../../vendor/scripts/bootstrap/*.js ../../vendor/styles/bootstrap/*.styl &&
+      cp js/*.js ../../vendor/scripts/bootstrap/ &&
+      cp fonts/* ../../app/assets/fonts/ &&
+      cd stylus &&
+      for f in *.styl; do cp $f ../../../vendor/styles/bootstrap/_$f; done
       '''
     child_process.exec cmd, cwd: fs.realpathSync('tmp'), (err, stdout, stderr) ->
       throw err if err

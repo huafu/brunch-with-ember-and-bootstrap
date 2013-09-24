@@ -1,6 +1,6 @@
-// Version: 01c440e23a4772f5caabe9d8e27e0b6ac9b35c6c-16-g4297f63
-// Last commit: 4297f63 (2013-08-19 08:30:46 -0700)
-var Bootstrap = Ember.Namespace.create();
+// Version: 01c440e23a4772f5caabe9d8e27e0b6ac9b35c6c-43-ge92fa8f
+// Last commit: e92fa8f (2013-09-11 07:42:04 -0700)
+
 
 (function() {
 var define, requireModule;
@@ -42,7 +42,10 @@ var define, requireModule;
   };
 })();
 (function() {
-window.Bootstrap = Bootstrap;
+window.Bootstrap = Ember.Namespace.create();
+Bootstrap.VERSION = '0.0.4';
+
+if (Ember.libraries) Ember.libraries.register('Bootstrap', Bootstrap.VERSION);
 
 })();
 
@@ -52,23 +55,28 @@ window.Bootstrap = Bootstrap;
 var get = Ember.get;
 
 var modalPaneTemplate = [
-'<div class="modal-header">',
-'  {{#if view.showCloseButton}}<a href="#" class="close" rel="close">&times;</a>{{/if}}',
-'  {{view view.headerViewClass}}',
-'</div>',
-'<div class="modal-body">{{view view.bodyViewClass}}</div>',
-'<div class="modal-footer">',
-'  {{view view.footerViewClass}}',
-'</div>'].join("\n");
+    '<div class="modal-dialog">',
+    '  <div class="modal-content">',
+    '    <div class="modal-header">',
+    '      {{#if view.showCloseButton}}<button type="button" class="close" rel="close">&times;</button>{{/if}}',
+    '      {{view view.headerViewClass}}',
+    '    </div>',
+    '    <div class="modal-body">{{view view.bodyViewClass}}</div>',
+    '    <div class="modal-footer">',
+    '      {{view view.footerViewClass}}',
+    '    </div>',
+    '  </div>',
+    '</div>' ].join("\n");
 
 var footerTemplate = [
-'{{#if view.parentView.secondary}}<a href="#" class="btn btn-secondary" rel="secondary">{{view.parentView.secondary}}</a>{{/if}}',
-'{{#if view.parentView.primary}}<a href="#" class="btn btn-primary" rel="primary">{{view.parentView.primary}}</a>{{/if}}'].join("\n");
+    '{{#if view.parentView.secondary}}<button type="button" class="btn btn-default" rel="secondary">{{view.parentView.secondary}}</button>{{/if}}',
+    '{{#if view.parentView.primary}}<button type="button" class="btn btn-primary" rel="primary">{{view.parentView.primary}}</button>{{/if}}' ]
+    .join("\n");
 
-var modalPaneBackdrop = '<div class="modal-backdrop"></div>';
+var modalPaneBackdrop = '<div class="modal-backdrop in"></div>';
 
 Bootstrap.ModalPane = Ember.View.extend(Ember.DeferredMixin, {
-  classNames: 'modal',
+  classNames: [ 'modal', 'in' ],
   defaultTemplate: Ember.Handlebars.compile(modalPaneTemplate),
   heading: null,
   message: null,
@@ -91,24 +99,30 @@ Bootstrap.ModalPane = Ember.View.extend(Ember.DeferredMixin, {
   }),
 
   didInsertElement: function() {
-    if (get(this, 'showBackdrop')) this._appendBackdrop();
+    if (get(this, 'showBackdrop')) {
+      this._appendBackdrop();
+    }
+    this.$().show();
     this._setupDocumentKeyHandler();
   },
 
   willDestroyElement: function() {
-    if (this._backdrop) this._removeBackdrop();
     this._removeDocumentKeyHandler();
+    if (this._backdrop) {
+      this._removeBackdrop();
+    }
   },
 
   keyPress: function(event) {
     if (event.keyCode === 27) {
-      this._triggerCallbackAndDestroy({ close: true }, event);
+      this._triggerCallbackAndDestroy({
+        close: true
+      }, event);
     }
   },
 
   click: function(event) {
-    var target = event.target,
-        targetRel = target.getAttribute('rel');
+    var target = event.target, targetRel = target.getAttribute('rel');
 
     if (targetRel) {
       var options = {};
@@ -120,18 +134,22 @@ Bootstrap.ModalPane = Ember.View.extend(Ember.DeferredMixin, {
   },
 
   _appendBackdrop: function() {
-    var parentLayer = this.$().parent(),
-        animateIn = this.get("animateBackdropIn");
+    var parentLayer = this.$().parent(), animateIn = this.get("animateBackdropIn");
     this._backdrop = jQuery(modalPaneBackdrop).appendTo(parentLayer);
-    if (animateIn) this._backdrop.addClass("hide")[animateIn.method](animateIn.options);
+    if (animateIn) {
+      this._backdrop.hide()[animateIn.method](animateIn.options);
+    }
   },
 
   _removeBackdrop: function() {
-    var animateOut = this.get("animateBackdropOut"),
-        _this = this;
+    var animateOut = this.get("animateBackdropOut"), _this = this;
 
     if (animateOut) {
-      animateOut.options = jQuery.extend({always: function(){ _this._backdrop.remove();}}, animateOut.options);
+      animateOut.options = jQuery.extend({
+        always: function() {
+          _this._backdrop.remove();
+        }
+      }, animateOut.options);
       this._backdrop[animateOut.method](animateOut.options);
     } else {
       this._backdrop.remove();
@@ -139,10 +157,9 @@ Bootstrap.ModalPane = Ember.View.extend(Ember.DeferredMixin, {
   },
 
   _setupDocumentKeyHandler: function() {
-    var cc = this,
-        handler = function(event) {
-          cc.keyPress(event);
-        };
+    var cc = this, handler = function(event) {
+      cc.keyPress(event);
+    };
     jQuery(window.document).bind('keyup', handler);
     this._keyUpHandler = handler;
   },
@@ -152,8 +169,11 @@ Bootstrap.ModalPane = Ember.View.extend(Ember.DeferredMixin, {
   },
 
   _resolveOrReject: function(options, event) {
-    if (options.primary) this.resolve(options, event);
-    else this.reject(options, event);
+    if (options.primary) {
+      this.resolve(options, event);
+    } else {
+      this.reject(options, event);
+    }
   },
 
   _triggerCallbackAndDestroy: function(options, event) {
@@ -172,14 +192,15 @@ Bootstrap.ModalPane.reopenClass({
   rootElement: ".ember-application",
   popup: function(options) {
     var modalPane, rootElement;
-    if (!options) options = {};
+    if (!options) {
+      options = {};
+    }
     modalPane = this.create(options);
     rootElement = get(this, 'rootElement');
     modalPane.appendTo(rootElement);
     return modalPane;
   }
 });
-
 
 })();
 
@@ -481,19 +502,13 @@ Bootstrap.Pager = Ember.CollectionView.extend({
   classNames: ['pager'],
   itemTitleKey: 'title',
   itemHrefKey: 'href',
-  init: function() {
-    this._super();
-    if (!this.get('content')) {
-      this.set('content', Ember.A([
-                                  Ember.Object.create({ title: '&larr;' }), 
-                                  Ember.Object.create({ title: '&rarr;' })
-      ]));
-    }
-  },
+  content: Ember.A([Ember.Object.create({title: '&larr;'}), Ember.Object.create({title: '&rarr;'})]),
+
   itemViewClass: Ember.View.extend(Bootstrap.ItemViewTitleSupport, Bootstrap.ItemViewHrefSupport, {
     classNameBindings: ['content.next', 'content.previous', 'content.disabled'],
     template: Ember.Handlebars.compile('<a {{bindAttr href="view.href"}}>{{{view.title}}}</a>')
   }),
+
   arrayDidChange: function(content, start, removed, added) {
     if (content) {
       Ember.assert('content must always has at the most 2 elements', content.get('length') <= 2);
@@ -735,9 +750,10 @@ Bootstrap.Forms = Ember.Namespace.create({
 (function() {
 Bootstrap.Forms.Field = Ember.View.extend({
   tagName: 'div',
-  classNameBindings: ['form-group'],
+  classNameBindings: [':form-group', 'isValid:has-no-error:has-error'],
   labelCache: undefined,
   help: undefined,
+  isValid: true,
   template: Ember.Handlebars.compile([
     '{{view view.labelView viewName="labelView"}}',
     '{{view view.inputField viewName="inputField"}}',
@@ -797,11 +813,12 @@ Bootstrap.Forms.Field = Ember.View.extend({
   errorsView: Ember.View.extend({
     tagName: 'div',
     classNames: ['errors', 'help-inline'],
+    template: Ember.Handlebars.compile('{{view.message}}'),
 
-    _updateContent: Ember.observer(function() {
+    message: Ember.computed(function(key, value) {
       var parent = this.get('parentView');
 
-      if (parent !== null) {
+      if (parent != null) {
         var binding = parent.get('valueBinding._from');
         var fieldName = null;
         var object = null;
@@ -819,18 +836,18 @@ Bootstrap.Forms.Field = Ember.View.extend({
           var errors = object.get('errors');
 
           if (errors && fieldName in errors && !Ember.isEmpty(errors[fieldName])) {
-            parent.$().addClass('has-error');
-            this.$().html(errors[fieldName].join(', '));
+            parent.set('isValid', false);
+            return errors[fieldName].join(', ');
           } else {
-            parent.$().removeClass('has-error');
-            this.$().html('');
+            parent.set('isValid', true);
+            return '';
           }
         } else {
-          parent.$().removeClass('has-error');
-          this.$().html('');
+          parent.set('isValid', true);
+          return '';
         }
       }
-    }, 'parentView.context.isValid', 'parentView.label')
+    }).property('parentView.context.isValid', 'parentView.label')
   }),
 
   helpView: Ember.View.extend({
