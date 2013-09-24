@@ -39,7 +39,7 @@ exports.config =
           "vendor#{DIR_SEP}scripts#{DIR_SEP}ember.prod.js"
           "vendor#{DIR_SEP}scripts#{DIR_SEP}ember-data.dev.js"
           "vendor#{DIR_SEP}scripts#{DIR_SEP}ember-data.prod.js"
-          "vendor#{DIR_SEP}scripts#{DIR_SEP}bootstrap#{DIR_SEP}bootstrap-tooltip.js"
+          "vendor#{DIR_SEP}scripts#{DIR_SEP}bootstrap#{DIR_SEP}tooltip.js"
         ]
         after: [
           "vendor#{DIR_SEP}scripts#{DIR_SEP}ember-bootstrap-latest.js"
@@ -47,7 +47,9 @@ exports.config =
 
     stylesheets:
       joinTo: objectify(
-        "stylesheets#{DIR_SEP}app.css", /^(app|vendor)/
+        "stylesheets#{DIR_SEP}app.css", (path) ->
+          # we need to exclude bootstrap files since they're required in the application
+          /^(app|vendor)/.test(path) and not /^vendor(\/|\\)styles(\/|\\)bootstrap(\/|\\)/.test(path)
       )
       order:
         before: [

@@ -64,9 +64,8 @@ task 'update-bootstrap', 'download the latest Twitter Bootstrap javascript and s
       cd bootstrap-stylus &&
       rm ../../vendor/scripts/bootstrap/*.js ../../vendor/styles/bootstrap/*.styl &&
       cp js/*.js ../../vendor/scripts/bootstrap/ &&
-      cp fonts/* ../../app/assets/fonts/ &&
-      cd stylus &&
-      for f in *.styl; do cp $f ../../../vendor/styles/bootstrap/_$f; done
+      cp stylus/*.styl ../../vendor/styles/bootstrap/ &&
+      cp fonts/* ../../app/assets/fonts/
       '''
     child_process.exec cmd, cwd: fs.realpathSync('tmp'), (err, stdout, stderr) ->
       throw err if err
