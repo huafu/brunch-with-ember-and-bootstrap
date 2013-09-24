@@ -10,17 +10,32 @@ task 'test', ->
     console.log "Karma has exited with #{exitCode}"
     process.exit exitCode
 
+
 # Gets latest Ember Data
 task 'update-ember-data', 'download latest build of Ember Data', (options) ->
-  file = fs.createWriteStream 'vendor/scripts/ember-data-latest.js'
-  request = http.get 'http://builds.emberjs.com.s3.amazonaws.com/ember-data-latest.js', (response) ->
-    response.pipe file
+  channel = options.channel ? 'beta'
+  console.log "Downloading latest debug and production sources for Ember Data from channel #{channel}..."
+  baseUrl = "http://builds.emberjs.com/#{channel}"
+  devFile = fs.createWriteStream 'vendor/scripts/ember-data.dev.js'
+  prodFile = fs.createWriteStream 'vendor/scripts/ember-data.prod.js'
+  request = http.get "#{baseUrl}/ember-data.js", (response) ->
+    response.pipe devFile
+  request = http.get "#{baseUrl}/ember-data.prod.js", (response) ->
+    response.pipe prodFile
+
 
 # Get latest Ember
 task 'update-ember', 'download the latest Ember', (options) ->
-  file = fs.createWriteStream 'vendor/scripts/ember-latest.js'
-  request = http.get 'http://builds.emberjs.com.s3.amazonaws.com/ember-latest.js', (response) ->
-    response.pipe file
+  channel = options.channel ? 'release'
+  console.log "Downloading latest debug and production sources for EmberJS from channel #{channel}..."
+  baseUrl = "http://builds.emberjs.com/#{channel}"
+  devFile = fs.createWriteStream 'vendor/scripts/ember.dev.js'
+  prodFile = fs.createWriteStream 'vendor/scripts/ember.prod.js'
+  request = http.get "#{baseUrl}/ember.js", (response) ->
+    response.pipe devFile
+  request = http.get "#{baseUrl}/ember.prod.js", (response) ->
+    response.pipe prodFile
+
 
 # Get the latest Ember Bootstrap
 task 'update-ember-bootstrap', 'download and build the latest Ember Bootstrap', (options) ->
