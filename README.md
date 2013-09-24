@@ -1,26 +1,20 @@
 # brunch-with-ember-and-bootstrap
 An up-to-date [Brunch](http://brunch.io) skeleton for developing [Ember](http://emberjs.com) applications based on the official Ember [Starter Kit](https://github.com/emberjs/starter-kit/archive/master.zip).
 
-It's based the skeleton fron Giovanni Collazo [brunch-with-ember-reloaded](https://github.com/gcollazo/brunch-with-ember-reloaded).
+It's based the skeleton fron Giovanni Collazo [brunch-with-ember-reloaded](https://github.com/gcollazo/brunch-with-ember-reloaded) but is now much more updated and complex.
 
 
 ## Demo
-Giovanni Collazo built a demo app using his skeleton (on which I've based mine), based on the
-[Building an App with Ember.js](http://www.youtube.com/watch?v=Ga99hMi7wfY) video by
-[Tom Dale](http://twitter.com/tomdale).
-
-**Demo**: [ember-bloggr](http://dev.gcollazo.com/ember-bloggr)
-**Source**: [https://github.com/gcollazo/ember-bloggr](https://github.com/gcollazo/ember-bloggr)
-
-I'll soon publish a little demo tool using my (this) skeleton.
+I'll try to publish soon a little demo tool using this skeleton.
 
 
 ## Versions
-- [Ember v1.0.0-rc.7](http://emberjs.com)
+- [Ember v1.0.0](http://emberjs.com)
+- [Ember Data v1.0.0b2](https://github.com/emberjs/data)
 - [Handlebars 1.0.0](http://handlebarsjs.com)
 - [jQuery v1.9.1](http://jquery.com)
 - [HTML5 Boilerplate v4.2.0](http://html5boilerplate.com)
-- [Twitter Bootstrap v2.3.2](https://github.com/twitter/bootstrap)
+- [Twitter Bootstrap v3.0.0](https://github.com/twitter/bootstrap)
 
 
 ## Features
@@ -28,6 +22,7 @@ I'll soon publish a little demo tool using my (this) skeleton.
 - **Stylus** - Expressive, dynamic, robust CSS pre-processor.
 - **auto-reload-brunch** - Adds automatic browser reloading support to brunch.
 - **uglify-js-brunch** - Adds UglifyJS support to brunch.
+- **keyword-brunch** - Adds Keyword support to brunch to replace some variables in the generated sources.
 
 
 ## Getting started
@@ -35,19 +30,27 @@ Create a new project using this skeleton:
 ```
 brunch new gh:huafu/brunch-with-ember-and-bootstrap <appname>
 cd <appname>
-brunch watch -s
+brunch watch --server
 ```
 Open [http://localhost:3333](http://localhost:3333) on your browser.
 
 
-### Ember Data
-The Ember Data is already included in the project from [builds.emberjs.com](http://builds.emberjs.com).
+## Production release
+To create a production release (smaller vendor files, js and css packed) use the `-P` or `--production` flag when building:
+```
+brunch build --production
+```
 
-You can easily disable it by prepending `vendor/scripts/ember-data-latest.js` with a `_`, removing it from the `config.coffee` file and commenting out `require 'store'` from `app/initialize.coffee`.
+
+
+### Ember Data
+The Ember Data is already included in the project but you need to activate it in the file `app/store.coffee`.
+
+You can easily disable it by prepending `vendor/scripts/ember-data.js` with a `_`, removing it from the `config.coffee` file and commenting out `require 'store'` from `app/initialize.coffee`.
 
 
 ### Ember Bootstrap
-[Ember Bootstrap](https://github.com/emberjs-addons/ember-bootstrap) is some helpers to use Twitter Bootstrap elements easy with Ember. It comes with Views accessible as Handlebars template helpers too.
+[Ember Bootstrap](https://github.com/emberjs-addons/ember-bootstrap) is adding some helpers to use Twitter Bootstrap elements easy with Ember. It comes with Views accessible as Handlebars template helpers too.
 
 
 ### Generators
@@ -98,6 +101,8 @@ cake update-ember
 cake update-ember-data
 # update Ember Bootstrap:
 cake update-ember-bootstrap
+# update Twitter Bootstrap:
+cake update-bootstrap
 ```
 
 ## License
