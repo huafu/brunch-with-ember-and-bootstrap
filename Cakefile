@@ -3,8 +3,25 @@ fs = require 'fs'
 child_process = require 'child_process'
 
 
+# Cleanup build directory
+task 'clean', 'cleanup build folders and files', (options) ->
+  console.log 'Cleaning up build directories...'
+  child_process.exec 'rm -rf public'
+
+
+# Build a production release
+task 'build', 'build a production release', (options) ->
+  console.log 'Building production ready release...'
+  child_process.exec 'rm -rf public public.tgz', (err) ->
+    throw err if err
+    child_process.exec 'brunch build --production', (err) ->
+      throw err if err
+      child_process.exec 'tar czf public.tgz public', (err) ->
+        console.info 'Production ready build done and packed in public.tgz, check public directory'
+
+
 # Test runner
-task 'test', ->
+task 'test', 'run unit tests', ->
   server = (require 'karma').server
   server.start configFile: './test/karma.conf.js', (exitCode) ->
     console.log "Karma has exited with #{exitCode}"

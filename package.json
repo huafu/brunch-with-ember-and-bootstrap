@@ -13,7 +13,8 @@
   },
   "scripts": {
     "start": "brunch watch --server",
-     "test": "cake test"
+    "build": "cake build",
+    "test": "cake test"
   },
   "dependencies": {
     "javascript-brunch": ">= 1.6 < 2",
