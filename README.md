@@ -102,6 +102,8 @@ cake update-ember-data
 cake update-ember-bootstrap
 # update Twitter Bootstrap:
 cake update-bootstrap
+# get/update Ember Date:
+cake update-ember-date
 ```
 
 ## License

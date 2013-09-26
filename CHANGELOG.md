@@ -1,3 +1,7 @@
+* __0.4.2__
+    * Fixed some typo in the config
+    * Added a cake command to get the Ember Date library
+
 * __0.4.1__
     * Adding `cake build` and `cake clean`. The build script is cleaning up everything, using production vendor files, and packing the public folder in a tgz file ready to send on server and deploy
     * Now scaffolding (using generators) will automatically add the corresponding `require` call(s) to each type initializer
