@@ -1,4 +1,5 @@
 * __0.4.1__
+    * Adding `cake build` and `cake clean`. The build script is cleaning up everything, using production vendor files, and packing the public folder in a tgz file ready to send on server and deploy
     * Now scaffolding (using generators) will automatically add the corresponding `require` call(s) to each type initializer
     * Added missing documentation blocks in existing files
     * Each generator is now coming with some documentation blocks
