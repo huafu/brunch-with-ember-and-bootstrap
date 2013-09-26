@@ -67,7 +67,7 @@ exports.config =
         "javascripts#{DIR_SEP}app.js", /^app/
       )
 
-# CoffeeScript easy-debugging | don't forget to remove for production release
+# CoffeeScript easy-debugging
   sourceMaps: true
 
 # keyword-brunch plugin
