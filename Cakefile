@@ -1,4 +1,5 @@
 http = require 'http'
+https = require 'https'
 fs = require 'fs'
 child_process = require 'child_process'
 
@@ -39,6 +40,14 @@ task 'update-ember-data', 'download latest build of Ember Data', (options) ->
     response.pipe devFile
   request = http.get "#{baseUrl}/ember-data.prod.js", (response) ->
     response.pipe prodFile
+
+
+# Get latest Ember-Date
+task 'update-ember-date', 'download the latest Ember Date', (options) ->
+  console.log "Downloading latest sources for Ember-Date..."
+  file = fs.createWriteStream 'vendor/scripts/ember-date.js'
+  request = https.get "https://raw.github.com/evilmarty/ember-date/master/dist/ember-date.js", (response) ->
+    response.pipe file
 
 
 # Get latest Ember
