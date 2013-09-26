@@ -42,13 +42,13 @@ exports.config =
           "vendor#{DIR_SEP}scripts#{DIR_SEP}bootstrap#{DIR_SEP}tooltip.js"
         ]
         after: [
-          "vendor#{DIR_SEP}scripts#{DIR_SEP}ember-bootstrap-latest.js"
+          "vendor#{DIR_SEP}scripts#{DIR_SEP}ember-bootstrap.js"
         ]
 
     stylesheets:
       joinTo: objectify(
         "stylesheets#{DIR_SEP}app.css", (path) ->
-          # we need to exclude bootstrap files since they're required in the application
+          # we need to exclude bootstrap files since they're included in the application.styl
           /^(app|vendor)/.test(path) and not /^vendor(\/|\\)styles(\/|\\)bootstrap(\/|\\)/.test(path)
       )
       order:
