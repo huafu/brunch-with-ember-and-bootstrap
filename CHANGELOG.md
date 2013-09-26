@@ -1,4 +1,5 @@
 * __0.4.2__
+    * Updated the `index.html` in the assets to reflect updated plugins
     * Fixed some typo in the config
     * Added a cake command to get the Ember Date library
 
