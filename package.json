@@ -2,7 +2,7 @@
   "author": "Huafu Gandon <huafu.gandon@gmail.com>",
   "name": "brunch-with-ember-and-bootstrap",
   "description": "A Brunch skeleton for developing Ember applications with CoffeeScript, Stylus and Twitter Bootstrap",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "homepage": "https://github.com/huafu/brunch-with-ember-and-bootstrap",
   "repository": {
     "type": "git",
@@ -13,7 +13,8 @@
   },
   "scripts": {
     "start": "brunch watch --server",
-     "test": "cake test"
+    "build": "cake build",
+    "test": "cake test"
   },
   "dependencies": {
     "javascript-brunch": ">= 1.6 < 2",

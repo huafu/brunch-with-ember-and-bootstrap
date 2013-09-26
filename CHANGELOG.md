@@ -1,3 +1,11 @@
+* __0.4.1__
+    * Adding `cake build` and `cake clean`. The build script is cleaning up everything, using production vendor files, and packing the public folder in a tgz file ready to send on server and deploy
+    * Now scaffolding (using generators) will automatically add the corresponding `require` call(s) to each type initializer
+    * Added missing documentation blocks in existing files
+    * Each generator is now coming with some documentation blocks
+    * The application view's element (container of all app) now has css classes depending on the name of all current
+    resource(s) and the current route to help page dependent design.
+
 * __0.4.0__
     * Upgraded to Twitter Bootstrap 3 and added a cake task to upgrade
     * Upgraded Ember Bootstrap library to the latest version
