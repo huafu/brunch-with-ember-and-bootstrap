@@ -22,7 +22,7 @@ require 'store'
 
 
 # ===== Views =====
-
+require 'views/Application'
 
 
 # ===== Controllers =====
