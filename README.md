@@ -1,11 +1,7 @@
-# brunch-with-ember-and-bootstrap
-An up-to-date [Brunch](http://brunch.io) skeleton for developing [Ember](http://emberjs.com) applications based on the official Ember [Starter Kit](https://github.com/emberjs/starter-kit/archive/master.zip).
+# Brunch with Ember and Bootstrap
+An up-to-date [Brunch](http://brunch.io) skeleton for developing clean [Ember](http://emberjs.com) applications with ease.
 
-It's based the skeleton fron Giovanni Collazo [brunch-with-ember-reloaded](https://github.com/gcollazo/brunch-with-ember-reloaded) but is now much more updated and complex.
-
-
-## Demo
-I'll try to publish soon a little demo tool using this skeleton.
+It was based the skeleton from Giovanni Collazo [brunch-with-ember-reloaded](https://github.com/gcollazo/brunch-with-ember-reloaded) but is now much more updated and complex now, tho I'd prefer to keep my original source.
 
 
 ## Versions
@@ -36,10 +32,11 @@ Open [http://localhost:3333](http://localhost:3333) on your browser.
 
 
 ## Production release
-To create a production release (smaller vendor files, js and css packed) use the `-P` or `--production` flag when building:
+To create a production release (smaller vendor files, js and css packed), use the cake build command:
 ```
-brunch build --production
+cake build
 ```
+It'll generate a production ready `public` and create an archive of it in `public.tgz` that you can then backup or send to your servers.
 
 
 
@@ -81,7 +78,8 @@ scaffolt component <comp-name>     → app/templates/components/comp-name.hbs
                                    → app/views/components/CompName.coffee
     => App.CompNameComponent = Ember.Component.extend
 ```
-There's a few more commands you can use with scaffolt and also instruction on how to create your own generators, so make sure you check out the [docs](https://github.com/paulmillr/scaffolt#readme).
+* There's a few more commands you can use with `scaffolt` and also instruction on how to create your own generators, so make sure you check out the [docs](https://github.com/paulmillr/scaffolt#readme).
+* Each generator will automatically add the generated files to the corresponding initializer coffee file so that you won't have to add them yourself.
 
 
 ### Testing
@@ -90,6 +88,7 @@ You can write your tests in the `test` folder, just make sure they are named `*_
 ```
 cake test
 ```
+It needs some work to make it ready with `Ember`, and that will probably come in the next major release.
 
 
 ## Updating
@@ -106,7 +105,7 @@ cake update-bootstrap
 ```
 
 ## License
-All of brunch-with-ember-reloaded is licensed under the MIT license.
+All of brunch-with-ember-and-bootstrap is licensed under the MIT license.
 
 Copyright (c) 2013 Huafu Gandon
 
