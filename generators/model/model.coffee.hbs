@@ -1,4 +1,12 @@
 App = require 'app'
 
+###*
+  Model {{#camelize}}{{name}}{{/camelize}}
+
+  @class {{#camelize}}{{name}}{{/camelize}}
+  @namespace App
+  @extends DS.Model
+###
 module.exports = App.{{#camelize}}{{name}}{{/camelize}} = DS.Model.extend
+  # put your code here
 

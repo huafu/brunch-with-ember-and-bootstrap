@@ -1,3 +1,11 @@
 App = require 'app'
 
-module.exports = App.{{#camelize}}{{name}}{{/camelize}}Component = Ember.Component.extend {}
+###*
+  Component {{#camelize}}{{name}}{{/camelize}}Component
+
+  @class {{#camelize}}{{pluralName}}{{/camelize}}
+  @namespace App
+  @extends Ember.Component
+###
+module.exports = App.{{#camelize}}{{name}}{{/camelize}}Component = Ember.Component.extend
+  # put your code here
