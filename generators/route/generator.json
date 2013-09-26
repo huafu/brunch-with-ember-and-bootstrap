@@ -3,6 +3,11 @@
     {
       "from": "route.coffee.hbs",
       "to": "app/routes/{{#camelize}}{{name}}{{/camelize}}.coffee"
+    },
+    {
+      "from": "routes.coffee.hbs",
+      "to": "app/routes.coffee",
+      "method": "append"
     }
   ],
   "dependencies": []
