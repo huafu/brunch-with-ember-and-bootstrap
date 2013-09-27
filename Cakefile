@@ -98,3 +98,40 @@ task 'update-bootstrap', 'download the latest Twitter Bootstrap javascript and s
     child_process.exec cmd, cwd: fs.realpathSync('tmp'), (err, stdout, stderr) ->
       throw err if err
       child_process.exec 'rm -rf tmp'
+
+
+# Get the latests Font Awesome (stylus version)
+task 'update-font-awesome', 'download the latest Font Bootstrap font and stylus files', (options) ->
+  console.log "Downloading the latest sources for Font Awesome..."
+  fs.mkdir 'tmp', (err) ->
+    throw err if err
+    cmd = '''
+      git clone https://github.com/MarcelloDiSimone/Font-Awesome.git &&
+      cd Font-Awesome &&
+      mkdir -p ../../vendor/styles/font-awesome
+      rm -f ../../vendor/styles/font-awesome/*.styl
+      cp stylus/*.styl ../../vendor/styles/font-awesome/ &&
+      cat stylus/variables.styl | sed s/"..\\/font"/"..\\/fonts"/ > ../../vendor/styles/font-awesome/variables.styl
+      rm -f ../../app/assets/fonts/fontawesome-webfont.* &&
+      cp font/fontawesome-webfont.* ../../app/assets/fonts/
+      '''
+    child_process.exec cmd, cwd: fs.realpathSync('tmp'), (err, stdout, stderr) ->
+      throw err if err
+      child_process.exec 'rm -rf tmp'
+
+
+# generates the API docs
+task 'gen-doc', 'generate application documentation', (options) ->
+  console.log 'Generating the API documentation...'
+  cmd = '''
+    rm -rf tmp-doc
+    mkdir -p tmp-doc/vendor &&
+    coffee -c -o tmp-doc app &&
+    cp vendor/scripts/ember.dev.js vendor/scripts/ember-data.dev.js vendor/scripts/ember-bootstrap.js vendor/scripts/ember-date.js tmp-doc/vendor/ &&
+    yuidoc -C yuidoc.json tmp-doc
+    '''
+  child_process.exec cmd, null, (err, stdout, stderr) ->
+    throw err if err
+    child_process.exec 'rm -rf tmp-doc'
+    console.log 'API documentation generated successfully'
+

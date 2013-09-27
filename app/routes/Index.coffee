@@ -10,7 +10,7 @@ App = require 'app'
 ###
 module.exports = App.IndexRoute = Ember.Route.extend
   ###*
-    Our model, just some info message as of example
+    Our model, just some info message as of example and all the font awesome icons
 
     @inheritDoc
   ###
@@ -20,3 +20,4 @@ module.exports = App.IndexRoute = Ember.Route.extend
       at #{App.CONFIG.compilation.date.toTimeString()}
       on #{App.CONFIG.compilation.date.toDateString()}
       """
+    iconNames: Ember.A(App.BsIconComponent.NAMES)

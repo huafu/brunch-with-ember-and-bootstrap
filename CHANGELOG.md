@@ -1,4 +1,8 @@
 * __0.4.2__
+    * Added a cake task to generate API docs with YUI doc generator
+    * Added Font Awesome and a `bs-icon` component for it
+    * Added a cake task to update Font Awesome sources
+    * Updated the index template to show some more stuff by default
     * Fixed the `update-ember` and `update-ember-data` cake tasks, now they work with the -c or --channel option
     * Updated the `index.html` in the assets to reflect updated plugins
     * Fixed some typo in the config
