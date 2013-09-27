@@ -11,6 +11,7 @@ It was based the skeleton from Giovanni Collazo [brunch-with-ember-reloaded](htt
 - [jQuery v1.9.1](http://jquery.com)
 - [HTML5 Boilerplate v4.2.0](http://html5boilerplate.com)
 - [Twitter Bootstrap v3.0.0](https://github.com/twitter/bootstrap)
+- [Font Awesome v3.1.0](http://fontawesome.io)
 
 
 ## Features
