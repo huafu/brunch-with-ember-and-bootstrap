@@ -1,3 +1,6 @@
+* __0.4.2-1__
+    * Fixed wrong data in the `yuidoc.json` file
+
 * __0.4.2__
     * Updated the README to reflect all changes
     * Added a cake task to generate API docs with YUI doc generator
