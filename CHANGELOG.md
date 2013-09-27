@@ -1,4 +1,5 @@
 * __0.4.2__
+    * Fixed the `update-ember` and `update-ember-data` cake tasks, now they work with the -c or --channel option
     * Updated the `index.html` in the assets to reflect updated plugins
     * Fixed some typo in the config
     * Added a cake command to get the Ember Date library
