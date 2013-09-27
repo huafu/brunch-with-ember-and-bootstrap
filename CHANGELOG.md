@@ -1,4 +1,5 @@
 * __0.4.2__
+    * Updated the README to reflect all changes
     * Added a cake task to generate API docs with YUI doc generator
     * Added Font Awesome and a `bs-icon` component for it
     * Added a cake task to update Font Awesome sources
@@ -13,8 +14,7 @@
     * Now scaffolding (using generators) will automatically add the corresponding `require` call(s) to each type initializer
     * Added missing documentation blocks in existing files
     * Each generator is now coming with some documentation blocks
-    * The application view's element (container of all app) now has css classes depending on the name of all current
-    resource(s) and the current route to help page dependent design.
+    * The application view's element (container of all app) now has css classes depending on the name of all current resource(s) and the current route to help page dependent design.
 
 * __0.4.0__
     * Upgraded to Twitter Bootstrap 3 and added a cake task to upgrade
