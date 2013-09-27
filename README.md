@@ -11,6 +11,7 @@ It was based the skeleton from Giovanni Collazo [brunch-with-ember-reloaded](htt
 - [jQuery v1.9.1](http://jquery.com)
 - [HTML5 Boilerplate v4.2.0](http://html5boilerplate.com)
 - [Twitter Bootstrap v3.0.0](https://github.com/twitter/bootstrap)
+- [Font Awesome v3.1.0](http://fontawesome.io)
 
 
 ## Features
@@ -39,18 +40,25 @@ cake build
 It'll generate a production ready `public` and create an archive of it in `public.tgz` that you can then backup or send to your servers.
 
 
+## Creating API documentation
+You can easily create the API documentation fo your project using:
+```
+cake gen-doc
+```
+The API documentation will be generated in the `apidocs` folder. You can change this and other settings in `yuidoc.json`.
 
-### Ember Data
+
+## Ember Data
 The Ember Data is already included in the project but you need to activate it in the file `app/store.coffee`.
 
 You can easily disable it by prepending `vendor/scripts/ember-data.js` with a `_`, removing it from the `config.coffee` file and commenting out `require 'store'` from `app/initialize.coffee`.
 
 
-### Ember Bootstrap
+## Ember Bootstrap
 [Ember Bootstrap](https://github.com/emberjs-addons/ember-bootstrap) is adding some helpers to use Twitter Bootstrap elements easy with Ember. It comes with Views accessible as Handlebars template helpers too.
 
 
-### Generators
+## Generators
 This skeleton makes use of [scaffolt](https://github.com/paulmillr/scaffolt#readme) generators to help you create common files quicker. To use first install scaffolt globally with `npm install -g scaffolt`. Then you can use the following command to generate files.
 
 ```
@@ -82,7 +90,7 @@ scaffolt component <comp-name>     → app/templates/components/comp-name.hbs
 * Each generator will automatically add the generated files to the corresponding initializer coffee file so that you won't have to add them yourself.
 
 
-### Testing
+## Testing
 You can write your tests in the `test` folder, just make sure they are named `*_test.coffee`. You can customize the test to user PhantomJS, Chrome, Firefox, Safari or Opera on the `test/karma.conf.js` file. There's a lot of other settings there as well. Run tests with:
 
 ```
@@ -102,6 +110,10 @@ cake update-ember-data
 cake update-ember-bootstrap
 # update Twitter Bootstrap:
 cake update-bootstrap
+# update Font Awesome:
+cake update-font-awesome
+# get/update Ember Date:
+cake update-ember-date
 ```
 
 ## License
