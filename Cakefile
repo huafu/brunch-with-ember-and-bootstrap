@@ -3,6 +3,8 @@ https = require 'https'
 fs = require 'fs'
 child_process = require 'child_process'
 
+option '-c', '--channel [CHANNEL]', 'channel to use when downloading Ember or Ember Data (canary|beta|release)'
+
 
 # Cleanup build directory
 task 'clean', 'cleanup build folders and files', (options) ->
