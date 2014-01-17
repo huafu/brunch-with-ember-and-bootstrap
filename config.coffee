@@ -10,15 +10,15 @@ objectify = ->
 
 
 #TODO: find a method to do this in a cleaner way
-gitHead = -> fs.readFileSync(sysPath.join('.git', 'HEAD')).toString().replace(/^\s*ref\:\s*/g, '').replace(/\s*$/g, '')
+gitHead = -> if fs.existsSync('.git') then fs.readFileSync(sysPath.join('.git', 'HEAD')).toString().replace(/^\s*ref\:\s*/g, '').replace(/\s*$/g, '') else 'n/a/n/a'
 gitBranch = ->
   head = gitHead().split /\//g
   branch = head.slice()
   branch.shift()
   branch.shift()
   branch.join '/'
-gitCommitHash = -> fs.readFileSync(sysPath.join('.git',
-  gitHead().split(/\//g).join(DIR_SEP))).toString().replace(/^\s*/g, '').replace(/\s*$/g, '')
+gitCommitHash = -> if fs.existsSync(".git") then fs.readFileSync(sysPath.join('.git',
+  gitHead().split(/\//g).join(DIR_SEP))).toString().replace(/^\s*/g, '').replace(/\s*$/g, '') else 'n/a'
 
 exports.config =
 # See http://brunch.io/#documentation for documentation.
